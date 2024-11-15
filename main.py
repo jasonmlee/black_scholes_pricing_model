@@ -106,6 +106,10 @@ with st.sidebar:
     volatility = st.number_input("Volatility", value=0.20)
     interest_rate = st.number_input("Risk-Free Interest Rate", value=0.05)
 
+    st.divider()
+
+    st.write("### Heatmap Parameters")
+
     spot_min = st.number_input('Min Spot Price', min_value=0.01, value=current_price*0.8, step=0.01)
     spot_max = st.number_input('Max Spot Price', min_value=0.01, value=current_price*1.2, step=0.01)
     vol_min = st.slider('Min Volatility', min_value=0.01, max_value=1.0, value=volatility*0.5, step=0.1)
@@ -201,6 +205,9 @@ def make_plot(bs_model, spot_range, vol_range, strike, plot_type='call'):
 plot_fig_call = make_plot(bs_model, spot_range, vol_range, strike, plot_type="call")
 plot_fig_put = make_plot(bs_model, spot_range, vol_range, strike, plot_type="put")
 
+st.divider()
+
+st.write("#### Explore how volatility and spot price affects the price of an option for a given strike price with the below heatmap:")
 
 plot1, plot2 = st.columns([1,1], gap="small")
 
